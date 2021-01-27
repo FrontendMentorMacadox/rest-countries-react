@@ -3,6 +3,7 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 import { useGlobalContext } from "../context";
+import { numberWithCommas } from "../utils";
 
 const URL = `https://restcountries.eu/rest/v2`;
 const codeEndpoint = "/alpha";
@@ -21,7 +22,6 @@ const CountryPage = () => {
         const response = await fetch(`${URL}${codeEndpoint}/${code}`);
         const data = await response.json();
         console.log(`${URL}${codeEndpoint}/${code}`);
-        console.log(data);
         if (data) {
           setCountry(data);
         } else {
@@ -47,7 +47,9 @@ const CountryPage = () => {
   }
 
   return (
-    <section className='section section-country'>
+    <section
+      className={`section section-country`}
+    >
       <Link to='/' className='btn shadow back-btn'>
         <FaLongArrowAltLeft />
         Back
@@ -62,7 +64,7 @@ const CountryPage = () => {
                 <span>Native Name: </span> {country.nativeName}
               </p>
               <p>
-                <span>Population: </span> {country.population}
+                <span>Population: </span> {numberWithCommas(country.population)}
               </p>
               <p>
                 <span>Region: </span> {country.region}

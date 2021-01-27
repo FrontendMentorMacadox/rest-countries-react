@@ -1,7 +1,9 @@
 import React from "react";
 
-const Listbox = () => {
-  return <div>Listbox</div>;
+
+const Listbox = ({ children }) => {
+
+  return <div className='listbox-group shadow'>{children}</div>;
 };
 
 export default Listbox;

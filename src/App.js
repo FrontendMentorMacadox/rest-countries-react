@@ -10,20 +10,26 @@ import Error from "./pages/Error";
 // Components
 import Header from "./components/Header";
 
+import { useGlobalContext } from "./context";
+
 const App = () => {
+  const { darkMode } = useGlobalContext();
+
   return (
-    <Router>
-      <Header />
-      <Switch>
-        <Route exact path='/'>
-          <Home />
-        </Route>
-        <Route path='/country/:code' children={<CountryPage />}></Route>
-        <Route path='*'>
-          <Error />
-        </Route>
-      </Switch>
-    </Router>
+    <div className={`app-wrapper ${darkMode ? "dark-mode" : ""}`}>
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route path='/country/:code' children={<CountryPage />}></Route>
+          <Route path='*'>
+            <Error />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 };
 

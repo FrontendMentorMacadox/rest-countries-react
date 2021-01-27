@@ -1,5 +1,6 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import { numberWithCommas } from "../utils";
 
 const Country = ({ country }) => {
   return (
@@ -9,7 +10,7 @@ const Country = ({ country }) => {
         <h2 className='widget-country'>{country.name}</h2>
         <h3 className='widget-population'>
           <span>Population: </span>
-          {country.population}
+          {numberWithCommas(country.population)}
         </h3>
         <h4 className='widget-region'>
           <span>Region: </span>

@@ -20,6 +20,8 @@ const Search = () => {
         ref={inputRef}
         placeholder='Search for a country...'
         aria-label='Search countries'
+        value={term}
+        onChange={(e) => type(e.target.value)}
       />
     </form>
   );

@@ -13,8 +13,11 @@ input {
 
 body {
   min-height: 100vh;
-  background-color: #fafafa;
   color: #17181a;
+}
+
+.app-wrapper {
+  min-height: 100vh;
 }
 
 /* HEADER */
@@ -98,6 +101,10 @@ main {
 .section-countries {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.section-countries--few-results {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 340px));
 }
 
 .widget {
@@ -415,7 +422,7 @@ main {
 }
 
 .form-search-input::placeholder {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .search-form:focus-within {
@@ -424,7 +431,6 @@ main {
 }
 
 @media (min-width: 640px) {
-
   .filters {
     flex-direction: row;
     justify-content: space-between;
@@ -457,4 +463,165 @@ main {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+.region-filter {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.6em;
+}
+
+.listbox-trigger {
+  border: none;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  width: 160px;
+  padding: 1em 1.6em;
+  font-size: 1.2rem;
+  color: #343539;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.listbox-trigger > * {
+  font-size: 1.6rem;
+}
+
+.listbox-trigger:focus {
+  box-shadow: 0 0 3px 2px #bbddf9;
+}
+
+.listbox-group {
+  position: absolute;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #fff;
+  width: 160px;
+  margin-top: 4px;
+  padding: 1em 1.6em;
+  top: 100%;
+  left: 0;
+  display: flex;
+}
+
+.listbox-option {
+  background-color: #fff;
+  padding: 0.3em 0;
+  margin-bottom: 0.3em;
+  font-size: 1.2rem;
+  color: #343539;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+  width: 100%;
+  text-indent: 4px;
+  opacity: 0.9;
+}
+
+.listbox-option--selected {
+  font-weight: 700;
+  opacity: 1;
+}
+
+.listbox-option:focus {
+  box-shadow: 0 0 3px 2px #bbddf9;
+}
+
+.listbox-option:nth-of-type(1) {
+  margin-top: 4px;
+}
+
+@media (min-width: 640px) {
+  .region-filter {
+    margin-top: 0;
+  }
+
+  .search-form {
+    width: 320px;
+  }
+  .section-filter {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .search-form {
+    width: 360px;
+  }
+
+  .filters {
+    padding: 1.8em 5.5em;
+    max-width: 1329px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* DARKMODE */
+
+.dark-mode .header {
+  background: #212e37;
+}
+
+.dark-mode,
+.dark-mode .search-form,
+.dark-mode .form-search-input,
+.dark-mode .listbox-trigger,
+.dark-mode .widget,
+.dark-mode .btn {
+  background: #2b3743;
+  color: #fff;
+}
+
+.dark-mode .shadow {
+  box-shadow: 0 0 3px 2px #202d37;
+}
+
+.dark-mode,
+.dark-mode .form-search-icon,
+.dark-mode .widget-details h2,
+.dark-mode .country-info h2,
+.dark-mode .widget-details h3,
+.dark-mode .country-info h3,
+.dark-mode .widget-details h4,
+.dark-mode .country-info h4,
+.dark-mode .widget-details h5,
+.dark-mode .country-info h5,
+.dark-mode .border-countries p {
+  color: #fff;
+}
+
+.dark-mode .widget-details p span,
+.dark-mode .country-info p span,
+.dark-mode .border-countries p {
+  opacity: 0.95;
+}
+
+.dark-mode .btn:focus,
+.dark-mode .search-form:focus-within,
+.dark-mode .listbox-trigger:focus {
+  box-shadow: 0 0 3px 2px #74838f;
+}
+
+.dark-mode .widget:focus {
+  box-shadow: 0 0 5px 3px #74838f;
+}
+
+.dark-mode .listbox-option,
+.dark-mode .listbox-group {
+  background: #2b3743;
+  color: #fff;
+}
+
+.dark-mode .shadow {
+  box-shadow: 0 0 3px 2px #202d37;
+}
+
+.dark-mode .listbox-option:focus {
+  box-shadow: 0 0 3px 2px #74838f;
 }

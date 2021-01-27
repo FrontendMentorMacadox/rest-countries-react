@@ -4,7 +4,7 @@ import Loading from "./Loading";
 import { useGlobalContext } from "../context";
 
 const CountriesList = () => {
-  const { countries, isLoading } = useGlobalContext();
+  const { filteredCountries, isLoading } = useGlobalContext();
 
   return (
     <>
@@ -12,7 +12,7 @@ const CountriesList = () => {
         <Loading />
       ) : (
         <>
-          {countries.map((country) => {
+          {filteredCountries.map((country) => {
             return <Country key={country.alpha3Code} country={country} />;
           })}
         </>
