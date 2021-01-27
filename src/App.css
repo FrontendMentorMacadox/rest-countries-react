@@ -594,7 +594,8 @@ main {
 .dark-mode .country-info h4,
 .dark-mode .widget-details h5,
 .dark-mode .country-info h5,
-.dark-mode .border-countries p {
+.dark-mode .border-countries p,
+.dark-mode .error {
   color: #fff;
 }
 
@@ -639,8 +640,11 @@ main {
   gap: 2em;
   text-align: center;
   min-height: 80vh;
+  color: #17181a;
 }
 
 .error {
   font-size: 2.4rem;
 }
+
+.dark-mode
