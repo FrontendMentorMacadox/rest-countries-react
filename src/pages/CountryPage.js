@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { FaLongArrowAltLeft } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
-import Loading from "../components/Loading";
+
+import { FaLongArrowAltLeft } from "react-icons/fa";
 import { useGlobalContext } from "../context";
 import { numberWithCommas } from "../utils";
 
+import Loading from "../components/Loading";
+import Error from "../pages/Error";
 const URL = `https://restcountries.eu/rest/v2`;
 const codeEndpoint = "/alpha";
 
@@ -21,7 +23,6 @@ const CountryPage = () => {
       try {
         const response = await fetch(`${URL}${codeEndpoint}/${code}`);
         const data = await response.json();
-        console.log(`${URL}${codeEndpoint}/${code}`);
         if (data) {
           setCountry(data);
         } else {
@@ -41,15 +42,12 @@ const CountryPage = () => {
   if (isLoading || countryLoading) {
     return <Loading />;
   }
-
-  if (!country) {
-    return <h2>Nothing to display</h2>;
+  if (!country || country.status === 404) {
+    return <Error />;
   }
 
   return (
-    <section
-      className={`section section-country`}
-    >
+    <section className={`section section-country`}>
       <Link to='/' className='btn shadow back-btn'>
         <FaLongArrowAltLeft />
         Back

@@ -13,3 +13,4 @@ https://rest-countries-react-acqajrq6n.vercel.app/
 1. Population with commas [x]
 1. Dark mode [x]
 1. Aria?
+1. Add Error page []

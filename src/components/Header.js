@@ -10,7 +10,7 @@ const Header = () => {
     <header className={`header`}>
       <div className='header-wrap'>
         <h1 className='page-title'>Where in the world?</h1>
-        <button className='btn' onClick={toggleDarkMode}>
+        <button className='btn mode-btn' onClick={toggleDarkMode}>
           {darkMode ? (
             <FaMoon className='mode-icon' />
           ) : (

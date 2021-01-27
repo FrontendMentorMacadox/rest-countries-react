@@ -564,7 +564,8 @@ main {
 
 /* DARKMODE */
 
-.dark-mode .header {
+.dark-mode .header,
+.dark-mode .mode-btn.btn {
   background: #212e37;
 }
 
@@ -573,12 +574,13 @@ main {
 .dark-mode .form-search-input,
 .dark-mode .listbox-trigger,
 .dark-mode .widget,
-.dark-mode .btn {
+.dark-mode .btn,
+.dark-mode .section {
   background: #2b3743;
   color: #fff;
 }
 
-.dark-mode .shadow {
+.dark .dark-mode .shadow {
   box-shadow: 0 0 3px 2px #202d37;
 }
 
@@ -624,4 +626,21 @@ main {
 
 .dark-mode .listbox-option:focus {
   box-shadow: 0 0 3px 2px #74838f;
+}
+
+/* ERROR */
+
+.section-error {
+  padding: 4em 2em;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  text-align: center;
+  min-height: 80vh;
+}
+
+.error {
+  font-size: 2.4rem;
 }
