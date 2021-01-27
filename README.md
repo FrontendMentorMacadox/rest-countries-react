@@ -1,4 +1,12 @@
-# Todo
+# REST COUNTRIES
+
+Based on challange from Frontend Mentor
+
+## Demo
+
+https://rest-countries-react-acqajrq6n.vercel.app/
+
+### Todos
 
 1. Listbox [x]
 1. Filtering and Searching the countries list [x]
