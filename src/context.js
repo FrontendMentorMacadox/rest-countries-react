@@ -5,14 +5,20 @@ const AppContext = React.createContext();
 const URL = `https://restcountries.eu/rest/v2`;
 const allEndpoint = "/all";
 
-const lsDarkMode = JSON.parse(localStorage.getItem("dark-mode"));
+const getStorageTheme = () => {
+  let theme = "light-theme";
+  if (localStorage.getItem("theme")) {
+    theme = localStorage.getItem("theme");
+  }
+  return theme;
+};
 
 export const AppProvider = ({ children }) => {
   const [term, setTerm] = useState("");
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [darkMode, setDarkMode] = useState(lsDarkMode || false);
+  const [theme, setTheme] = useState(getStorageTheme());
   const [isListboxExpanded, setIsListboxExpanded] = useState(false);
   const [regionFilter, setRegionFilter] = useState("All");
 
@@ -33,8 +39,12 @@ export const AppProvider = ({ children }) => {
     setTerm(val);
   };
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+  const toggleTheme = () => {
+    if (theme === "light-theme") {
+      setTheme("dark-theme");
+    } else {
+      setTheme("light-theme");
+    }
   };
 
   useEffect(() => {
@@ -53,7 +63,7 @@ export const AppProvider = ({ children }) => {
       }
     };
     fetchCountries();
-  }, []); 
+  }, []);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -77,8 +87,9 @@ export const AppProvider = ({ children }) => {
   }, [term, regionFilter, countries, isLoading]);
 
   useEffect(() => {
-    localStorage.setItem("dark-mode", JSON.stringify(darkMode));
-  }, [darkMode]);
+    document.documentElement.className = theme;
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
     <AppContext.Provider
@@ -89,12 +100,12 @@ export const AppProvider = ({ children }) => {
         isLoading,
         isListboxExpanded,
         regionFilter,
-        darkMode,
+        theme,
         openListbox,
         closeListbox,
         selectOption,
         type,
-        toggleDarkMode,
+        toggleTheme,
       }}
     >
       {children}

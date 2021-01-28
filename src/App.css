@@ -1,3 +1,39 @@
+:root {
+  --clr-bcg: #fff;
+  --clr-section: #fafafa;
+  --clr-widget: #fff;
+  --clr-font: #17181a;
+  --clr-btn: #343539;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-light: rgba(0, 0, 0, 0.075);
+  --shadow-dark: rgba(0, 0, 0, 0.15);
+  --shadow-focus: #bbddf9;
+}
+
+.light-theme {
+  --clr-bcg: #fff;
+  --clr-section: #fafafa;
+  --clr-widget: #fff;
+  --clr-font: #17181a;
+  --clr-btn: #343539;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-light: rgba(0, 0, 0, 0.075);
+  --shadow-dark: rgba(0, 0, 0, 0.15);
+  --shadow-focus: #bbddf9;
+}
+
+.dark-theme {
+  --clr-bcg: #212e37;
+  --clr-section: #2b3743;
+  --clr-widget: #2b3743;
+  --clr-font: #fafafa;
+  --clr-btn: #fafafa;
+  --shadow: #202d37;
+  --shadow-light: #202d37;
+  --shadow-dark: #202d37;
+  --shadow-focus: #74838f;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +49,8 @@ input {
 
 body {
   min-height: 100vh;
-  color: #17181a;
+  color: var(--clr-font);
+  background-color: var(--clr-section);
 }
 
 .app-wrapper {
@@ -26,9 +63,9 @@ body {
   position: sticky;
   top: 0;
   left: 0;
-  background-color: #ffffff;
+  background-color: var(--clr-bcg);
   z-index: 101;
-  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 3px 2px var(--shadow-light);
 }
 
 .header-wrap {
@@ -47,7 +84,7 @@ body {
 .btn {
   border: none;
   background: none;
-  color: #343539;
+  color: var(--clr-btn);
   font-size: 1.2rem;
   font-weight: 600;
   outline: none;
@@ -96,6 +133,7 @@ body {
 
 main {
   padding: 0 2em;
+  background-color: var(--clr-section);
 }
 
 .section-countries {
@@ -110,7 +148,7 @@ main {
 .widget {
   margin: 2em;
   overflow: hidden;
-  background: #fff;
+  background: var(--clr-widget);
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -122,7 +160,7 @@ main {
 }
 
 .widget:focus {
-  box-shadow: 0 0 6px 4px #bbddf9;
+  box-shadow: 0 0 6px 4px var(--shadow-focus);
 }
 
 .widget img {
@@ -138,7 +176,7 @@ main {
   font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 0.8em;
-  color: #343539;
+  color: var(--clr-btn);
 }
 
 .widget-details h3,
@@ -147,7 +185,7 @@ main {
 .country-info h4,
 .widget-details h5,
 .country-info h5 {
-  color: #343539;
+  color: var(--clr-btn);
   font-weight: 400;
   padding-bottom: 0.55em;
   font-size: 1.1rem;
@@ -159,7 +197,7 @@ main {
 }
 
 .shadow {
-  box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px 2px var(--shadow);
   border-radius: 3px;
 }
 
@@ -173,7 +211,7 @@ main {
 }
 
 .section-country {
-  background: #fafafa;
+  background: var(--clr-section);
 }
 
 .country-details {
@@ -185,7 +223,7 @@ main {
 
 .country-details img {
   width: 100%;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 0 1px var(--shadow-dark);
 }
 
 .country-details-content {
@@ -215,7 +253,7 @@ main {
   flex-basis: 100%;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #343539;
+  color: var(--clr-btn);
   margin-bottom: 1.5em;
 }
 
@@ -395,7 +433,7 @@ main {
 .search-form {
   display: flex;
   height: 36px;
-  background-color: #fff;
+  background-color: var(--clr-widget);
   padding: 0 0.8em;
 }
 
@@ -405,7 +443,8 @@ main {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   font-size: 1.4rem;
-  color: #9297a2;
+  opacity: 0.5;
+  color: var(--clr-font);
   line-height: 36px;
   outline: none;
   display: flex;
@@ -418,7 +457,8 @@ main {
   width: 100%;
   font-size: 1.2rem;
   outline: none;
-  color: #17181a;
+  color: var(--clr-font);
+  background-color: var(--clr-widget);
 }
 
 .form-search-input::placeholder {
@@ -426,7 +466,7 @@ main {
 }
 
 .search-form:focus-within {
-  box-shadow: 0 0 3px 2px #bbddf9;
+  box-shadow: 0 0 3px 2px var(--shadow-focus);
   border: none;
 }
 
@@ -474,13 +514,13 @@ main {
 
 .listbox-trigger {
   border: none;
-  background: #fff;
+  background: var(--clr-widget);
   display: flex;
   justify-content: space-between;
   width: 160px;
   padding: 1em 1.6em;
   font-size: 1.2rem;
-  color: #343539;
+  color: var(--clr-btn);
   outline: none;
   cursor: pointer;
   display: flex;
@@ -492,14 +532,14 @@ main {
 }
 
 .listbox-trigger:focus {
-  box-shadow: 0 0 3px 2px #bbddf9;
+  box-shadow: 0 0 3px 2px var(--shadow-focus);
 }
 
 .listbox-group {
   position: absolute;
   flex-direction: column;
   align-items: flex-start;
-  background-color: #fff;
+  background-color: var(--clr-widget);
   width: 160px;
   margin-top: 4px;
   padding: 1em 1.6em;
@@ -509,11 +549,11 @@ main {
 }
 
 .listbox-option {
-  background-color: #fff;
+  background-color: var(--clr-widget);
   padding: 0.3em 0;
   margin-bottom: 0.3em;
   font-size: 1.2rem;
-  color: #343539;
+  color: var(--clr-btn);
   outline: none;
   border-radius: 3px;
   cursor: pointer;
@@ -528,7 +568,7 @@ main {
 }
 
 .listbox-option:focus {
-  box-shadow: 0 0 3px 2px #bbddf9;
+  box-shadow: 0 0 3px 2px var(--shadow-focus);
 }
 
 .listbox-option:nth-of-type(1) {
@@ -562,73 +602,6 @@ main {
   }
 }
 
-/* DARKMODE */
-
-.dark-mode .header,
-.dark-mode .mode-btn.btn {
-  background: #212e37;
-}
-
-.dark-mode,
-.dark-mode .search-form,
-.dark-mode .form-search-input,
-.dark-mode .listbox-trigger,
-.dark-mode .widget,
-.dark-mode .btn,
-.dark-mode .section {
-  background: #2b3743;
-  color: #fff;
-}
-
-.dark .dark-mode .shadow {
-  box-shadow: 0 0 3px 2px #202d37;
-}
-
-.dark-mode,
-.dark-mode .form-search-icon,
-.dark-mode .widget-details h2,
-.dark-mode .country-info h2,
-.dark-mode .widget-details h3,
-.dark-mode .country-info h3,
-.dark-mode .widget-details h4,
-.dark-mode .country-info h4,
-.dark-mode .widget-details h5,
-.dark-mode .country-info h5,
-.dark-mode .border-countries p,
-.dark-mode .error {
-  color: #fff;
-}
-
-.dark-mode .widget-details p span,
-.dark-mode .country-info p span,
-.dark-mode .border-countries p {
-  opacity: 0.95;
-}
-
-.dark-mode .btn:focus,
-.dark-mode .search-form:focus-within,
-.dark-mode .listbox-trigger:focus {
-  box-shadow: 0 0 3px 2px #74838f;
-}
-
-.dark-mode .widget:focus {
-  box-shadow: 0 0 5px 3px #74838f;
-}
-
-.dark-mode .listbox-option,
-.dark-mode .listbox-group {
-  background: #2b3743;
-  color: #fff;
-}
-
-.dark-mode .shadow {
-  box-shadow: 0 0 3px 2px #202d37;
-}
-
-.dark-mode .listbox-option:focus {
-  box-shadow: 0 0 3px 2px #74838f;
-}
-
 /* ERROR */
 
 .section-error {
@@ -640,7 +613,7 @@ main {
   gap: 2em;
   text-align: center;
   min-height: 80vh;
-  color: #17181a;
+  color: var(--clr-font);
 }
 
 .error {

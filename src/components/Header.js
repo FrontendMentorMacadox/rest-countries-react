@@ -4,14 +4,14 @@ import { FaRegMoon, FaMoon } from "react-icons/fa";
 import { useGlobalContext } from "../context";
 
 const Header = () => {
-  const { darkMode, toggleDarkMode } = useGlobalContext();
+  const { theme, toggleTheme } = useGlobalContext();
 
   return (
     <header className={`header`}>
       <div className='header-wrap'>
         <h1 className='page-title'>Where in the world?</h1>
-        <button className='btn mode-btn' onClick={toggleDarkMode}>
-          {darkMode ? (
+        <button className='btn mode-btn' onClick={toggleTheme}>
+          {theme === "dark-theme" ? (
             <FaMoon className='mode-icon' />
           ) : (
             <FaRegMoon className='mode-icon' />
